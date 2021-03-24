@@ -20,13 +20,31 @@ export default defineComponent({
             editor = monaco.editor.create(monacoRef.value!, {
                 language: 'typescript',
                 theme: 'vs-dark',
-                value: '// Type your code here!\n// Keep in mind this is NOT sandboxed, meaning that you are not safe from self XSS.\n// Also, it is recommended that you do not attempt infinite loops.\n\n'
+                value: store.state.currentContent.code ?? '// Type your code here!\n// Keep in mind this is NOT sandboxed, meaning that you are not safe from self XSS.\n// Also, it is recommended that you do not attempt infinite loops.\n\n'
             });
+
+            store.commit('setContent', (content: string) => editor.setValue(content.trimStart()));
         });
 
         function run() {
-            const javascript = ts.transpile(editor.getValue());
-            eval(javascript);
+            let javascript;
+
+            try {
+                javascript = ts.transpile(editor.getValue(), { allowJs: false, noEmitOnError: true, strict: true });
+            } catch (error) {
+                alert(`COMPILATION ERROR:\n\n${error}`);
+
+                return;
+            }
+
+            try {
+                eval(javascript);
+            } catch (error) {
+                alert(`RUNTIME ERROR:\n\n${error}`);
+                store.commit('clearConsole');
+
+                return;
+            }
 
             const success = store.state.currentContent.validateOutput(store.state.console);
 

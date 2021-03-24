@@ -2,7 +2,7 @@
 	<div class="main-container">
 		<div class="side-info-bar">
 			<span class="title">{{ $store.state.currentContent.title }}</span>
-			<span class="content">{{ $store.state.currentContent.content }}</span>
+			<span class="content" v-html="$store.state.currentContent.content.replace(/\n/g, '<br />')"></span>
 			<div class="bottom-bar">
 				<button class="back-button" @click="back">Back</button>
 			</div>
