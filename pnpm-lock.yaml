@@ -1,5 +1,7 @@
 dependencies:
   core-js: 3.8.3
+  monaco-editor: 0.22.3
+  monaco-editor-webpack-plugin: 3.0.1_monaco-editor@0.22.3
   vue: 3.0.5
   vuex: 4.0.0_vue@3.0.5
 devDependencies:
@@ -19,7 +21,7 @@ lockfileVersion: 5.2
 packages:
   /@babel/code-frame/7.12.13:
     dependencies:
-      '@babel/highlight': 7.12.13
+      '@babel/highlight': 7.13.10
     dev: true
     resolution:
       integrity: sha512-HV1Cm0Q3ZrpCR93tkWOYiuYIgLxZXZFVG2VgK+MBWjUqZTundupbfx2aXarXuw5Ko5aMcjtJgbSs4vUGBS5v6g==
@@ -226,14 +228,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-oohVzLRZ3GQEk4Cjhfs9YkJA4TdIDTObdBEZGrd6F/T0GPSnuV6l22eMcxlvcvzVIPH3VTtxbseudM1zIE+rPQ==
-  /@babel/highlight/7.12.13:
+  /@babel/highlight/7.13.10:
     dependencies:
       '@babel/helper-validator-identifier': 7.12.11
       chalk: 2.4.2
       js-tokens: 4.0.0
     dev: true
     resolution:
-      integrity: sha512-kocDQvIbgMKlWxXe9fof3TQ+gkIPOUSEYhJjqUjvKMez3krV7vbzYCDq39Oj11UAVK7JqPVGQPlgE85dPNlQww==
+      integrity: sha512-5aPpe5XQPzflQrFwL1/QoeHkP2MsA4JCntcXHRhEsdsfPVkvPi2w7Qix4iV7t5S/oC9OodGrggd8aco1g3SZFg==
   /@babel/parser/7.12.15:
     engines:
       node: '>=6.0.0'
@@ -2250,7 +2252,6 @@ packages:
     resolution:
       integrity: sha512-+hN/Zh2D08Mx65pZ/4g5bsmNiZUuChDiQfTUQ7qJr4/kuopCr88xZsAXv6mBoZEsUI4OuGHlX59qE94K2mMW8Q==
   /big.js/5.2.2:
-    dev: true
     resolution:
       integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==
   /binary-extensions/1.13.1:
@@ -3084,7 +3085,7 @@ packages:
       import-fresh: 3.3.0
       parse-json: 5.2.0
       path-type: 4.0.0
-      yaml: 1.10.0
+      yaml: 1.10.2
     dev: true
     engines:
       node: '>=8'
@@ -3693,7 +3694,6 @@ packages:
     resolution:
       integrity: sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
   /emojis-list/3.0.0:
-    dev: true
     engines:
       node: '>= 4'
     resolution:
@@ -4402,7 +4402,7 @@ packages:
       memfs: 3.2.0
       minimatch: 3.0.4
       schema-utils: 2.7.0
-      semver: 7.3.4
+      semver: 7.3.5
       tapable: 1.1.3
     dev: true
     engines:
@@ -4461,7 +4461,7 @@ packages:
   /fs-extra/9.1.0:
     dependencies:
       at-least-node: 1.0.0
-      graceful-fs: 4.2.5
+      graceful-fs: 4.2.6
       jsonfile: 6.1.0
       universalify: 2.0.0
     dev: true
@@ -4675,6 +4675,11 @@ packages:
     dev: true
     resolution:
       integrity: sha512-kBBSQbz2K0Nyn+31j/w36fUfxkBW9/gfwRWdUY1ULReH3iokVJgddZAFcD1D0xlgTmFxJCbUkUclAlc6/IDJkw==
+  /graceful-fs/4.2.6:
+    dev: true
+    optional: true
+    resolution:
+      integrity: sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==
   /gzip-size/5.1.1:
     dependencies:
       duplexer: 0.1.2
@@ -5616,7 +5621,6 @@ packages:
   /json5/2.2.0:
     dependencies:
       minimist: 1.2.5
-    dev: true
     engines:
       node: '>=6'
     hasBin: true
@@ -5634,7 +5638,7 @@ packages:
     dev: true
     optional: true
     optionalDependencies:
-      graceful-fs: 4.2.5
+      graceful-fs: 4.2.6
     resolution:
       integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==
   /jsprim/1.4.1:
@@ -5743,10 +5747,8 @@ packages:
       big.js: 5.2.2
       emojis-list: 3.0.0
       json5: 2.2.0
-    dev: true
     engines:
       node: '>=8.9.0'
-    optional: true
     resolution:
       integrity: sha512-rP4F0h2RaWSvPEkD7BLDFQnvSf+nK+wr3ESUjNTyAGobqrijmW92zc+SO6d4p4B1wh7+B/Jg1mkQe5NYUEHtHQ==
   /locate-path/3.0.0:
@@ -6056,7 +6058,6 @@ packages:
     resolution:
       integrity: sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
   /minimist/1.2.5:
-    dev: true
     resolution:
       integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
   /minipass-collect/1.0.2:
@@ -6124,6 +6125,20 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
+  /monaco-editor-webpack-plugin/3.0.1_monaco-editor@0.22.3:
+    dependencies:
+      loader-utils: 2.0.0
+      monaco-editor: 0.22.3
+    dev: false
+    peerDependencies:
+      monaco-editor: 0.22.x || 0.23.x
+      webpack: ^4.5.0 || 5.x
+    resolution:
+      integrity: sha512-Hym4HqWgIpyoi9G0spln/b/7rkDKfYwIOrNzo1fHHMc+MLYSwD1JXHwKSDS77X27ZHfVJsEXbMZYdGhSYuVF0w==
+  /monaco-editor/0.22.3:
+    dev: false
+    resolution:
+      integrity: sha512-RM559z2CJbczZ3k2b+ouacMINkAYWwRit4/vs0g2X/lkYefDiu0k2GmgWjAuiIpQi+AqASPOKvXNmYc8KUSvVQ==
   /move-concurrently/1.0.1:
     dependencies:
       aproba: 1.2.0
@@ -7835,6 +7850,16 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-tCfb2WLjqFAtXn4KEdxIhalnRtoKFN7nAwj0B3ZXCbQloV2tq5eDbcTmT68JJD3nRJq24/XgxtQKFIpQdtvmVw==
+  /semver/7.3.5:
+    dependencies:
+      lru-cache: 6.0.0
+    dev: true
+    engines:
+      node: '>=10'
+    hasBin: true
+    optional: true
+    resolution:
+      integrity: sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==
   /send/0.17.1:
     dependencies:
       debug: 2.6.9
@@ -9390,13 +9415,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
-  /yaml/1.10.0:
+  /yaml/1.10.2:
     dev: true
     engines:
       node: '>= 6'
     optional: true
     resolution:
-      integrity: sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
+      integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
   /yargs-parser/13.1.2:
     dependencies:
       camelcase: 5.3.1
@@ -9464,6 +9489,8 @@ specifiers:
   core-js: ^3.6.5
   eslint: ^6.7.2
   eslint-plugin-vue: ^7.0.0-0
+  monaco-editor: ^0.22.3
+  monaco-editor-webpack-plugin: ^3.0.1
   typescript: ~3.9.3
   vue: ^3.0.0
   vuex: ^4.0.0-0
