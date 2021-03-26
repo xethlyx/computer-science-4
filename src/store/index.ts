@@ -3,7 +3,7 @@ import { createStore } from 'vuex';
 export const ALL_CONTENT: Record<string, Content> = {
 	intro1: {
 		title: 'Introduction',
-		content: 'TypeScript is a great general purpose language. To get you started off, let\'s try printing out the classic "Hello, world!". To print a statement in TypeScript, use console.log(\'YOUR TEXT HERE\'). Give it a try!',
+		content: 'TypeScript is a great general purpose language. To get you started off, let\'s try printing out the classic "Hello, world!". To print a statement in TypeScript, use console.log(\'YOUR TEXT HERE\'). Give it a try!\n\n(Keep in mind that you have to print out EXACTLY "Hello, world!" to continue)',
 		validateOutput: output => output.toLowerCase().includes('hello, world!'),
 		next: 'intro2'
 	},
@@ -46,6 +46,35 @@ const stringVariable = 'This works now!'; // :string isn't needed here, as TypeS
 doSomething(numberVariable);
 `,
 		validateOutput: output => output === 'This works now!\n',
+		next: 'advancedTypes1'
+	},
+	advancedTypes1: {
+		title: 'Advanced Types',
+		content: `TypeScript also supports a couple of advanced typing features that JavaScript doesn't have, such as enums, interfaces and generics. To help demonstrate this, complete the following interface to allow the print statement to work (you'll know when it works when all the red underlines disappear):`,
+		code: `
+const enum ExampleEnum {
+	A,
+	B,
+	C
+};
+
+interface EnumContainer {
+	// There is a missing value here! Fill it in to allow the print to work.
+	// To define a value in an interface, you can use the following syntax:
+	// name: type;
+	enum: ExampleEnum;
+}
+
+function printEnum(container: EnumContainer) {
+	console.log(container.name);
+}
+
+printEnum({
+	name: 'example',
+	enum: ExampleEnum.A
+});
+`,
+		validateOutput: output => output === 'example\n',
 		next: 'finished'
 	},
 	finished: {
